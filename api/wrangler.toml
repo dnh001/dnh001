@@ -1,0 +1,16 @@
+name = "dnh001-api"
+main = "src/index.ts"
+compatibility_date = "2024-06-20"
+account_id = ""
+
+[site]
+bucket = "./dist"
+
+[env.production]
+name = "dnh001-api"
+routes = [
+  { pattern = "api.dnh001.com", zone_name = "dnh001.com" }
+]
+
+[[env.production]]
+bucket = "./dist"

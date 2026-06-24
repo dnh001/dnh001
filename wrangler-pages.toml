@@ -1,0 +1,28 @@
+name = "dnh001-pages"
+compatibility_date = "2024-06-20"
+
+# Build settings
+[builds]
+  command = "npm run build:h5"
+  directory = "dist"
+
+# Routes
+[[routes]]
+  pattern = "dnh001.com"
+  destination = "index"
+
+[[routes]]
+  pattern = "www.dnh001.com"
+  destination = "index"
+
+[[routes]]
+  pattern = "api.dnh001.com"
+  destination = "1b25e5a2-8e17-4a2f-a4e8-1234567890ab" # Replace with your Worker ID
+  zone_name = "dnh001.com"
+
+[env.production]
+name = "dnh001-pages"
+
+[[env.production.builds]]
+  command = "npm run build:h5"
+  directory = "dist"

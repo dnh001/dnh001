@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.taro-cache/
+.vscode/
+.idea/
+*.log
+.DS_Store
+.env.local

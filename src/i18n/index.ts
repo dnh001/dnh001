@@ -1,0 +1,170 @@
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+
+const resources = {
+  en: {
+    translation: {
+      // Nav
+      'nav.home': 'Home',
+      'nav.cities': 'Cities',
+      'nav.articles': 'Articles',
+      'nav.meetups': 'Meetups',
+      'nav.community': 'Community',
+      'nav.tools': 'Tools',
+      'nav.profile': 'Profile',
+
+      // Home
+      'home.hero.title': 'Find Your Next Nomad Destination',
+      'home.hero.subtitle': 'Explore cities with real-time nomad scores based on cost, internet, weather and safety',
+      'home.hero.search': 'Search cities...',
+      'home.section.trending': 'Trending Destinations',
+      'home.section.toprated': 'Top Rated',
+      'home.section.articles': 'Latest Articles',
+      'home.section.meetups': 'Upcoming Meetups',
+
+      // Cities
+      'cities.title': 'Explore Cities',
+      'cities.search': 'Search cities...',
+      'cities.filter.all': 'All',
+      'cities.filter.affordable': 'Affordable',
+      'cities.filter.safe': 'Safe',
+      'cities.filter.fastwifi': 'Fast WiFi',
+      'cities.filter.warm': 'Warm Weather',
+      'cities.sort.score': 'Nomad Score',
+      'cities.sort.cost': 'Cost',
+      'cities.sort.wifi': 'WiFi Speed',
+      'cities.nomadscore': 'Nomad Score',
+      'cities.reviews': 'reviews',
+
+      // City Detail
+      'city.overview': 'Overview',
+      'city.reviews': 'Reviews',
+      'city.photos': 'Photos',
+      'city.articles': 'Articles',
+      'city.meetups': 'Meetups',
+      'city.score': 'Nomad Score',
+      'city.cost': 'Cost of Living',
+      'city.wifi': 'Internet Speed',
+      'city.weather': 'Weather',
+      'city.safety': 'Safety',
+      'city.permonth': '/month',
+
+      // Articles
+      'articles.title': 'Nomad Guides',
+      'articles.categories.visa': 'Visa',
+      'articles.categories.housing': 'Housing',
+      'articles.categories.work': 'Remote Work',
+      'articles.categories finance': 'Finance',
+      'articles.categories.lifestyle': 'Lifestyle',
+
+      // Meetups
+      'meetups.title': 'Meetups',
+      'meetups.attendees': 'attendees',
+      'meetups.rsvp': 'RSVP',
+      'meetups.organizer': 'Organizer',
+
+      // Profile
+      'profile.title': 'Profile',
+      'profile.checkins': 'Check-ins',
+      'profile.reviews': 'Reviews',
+      'profile.favorites': 'Favorites',
+      'profile.settings': 'Settings',
+
+      // Common
+      'common.loading': 'Loading...',
+      'common.error': 'Something went wrong',
+      'common.retry': 'Retry',
+      'common.viewmore': 'View More',
+      'common.USD': 'USD'
+    }
+  },
+  zh: {
+    translation: {
+      // Nav
+      'nav.home': '首页',
+      'nav.cities': '城市',
+      'nav.articles': '攻略',
+      'nav.meetups': '聚会',
+      'nav.community': '社区',
+      'nav.tools': '工具',
+      'nav.profile': '我的',
+
+      // Home
+      'home.hero.title': '探索下一个数字游民目的地',
+      'home.hero.subtitle': '基于成本、网络、气候、安全的实时游民评分',
+      'home.hero.search': '搜索城市...',
+      'home.section.trending': '热门目的地',
+      'home.section.toprated': '评分最高',
+      'home.section.articles': '最新攻略',
+      'home.section.meetups': '即将到来的聚会',
+
+      // Cities
+      'cities.title': '探索城市',
+      'cities.search': '搜索城市...',
+      'cities.filter.all': '全部',
+      'cities.filter.affordable': '便宜',
+      'cities.filter.safe': '安全',
+      'cities.filter.fastwifi': '快速网络',
+      'cities.filter.warm': '温暖气候',
+      'cities.sort.score': '游民评分',
+      'cities.sort.cost': '成本',
+      'cities.sort.wifi': '网速',
+      'cities.nomadscore': '游民评分',
+      'cities.reviews': '条评论',
+
+      // City Detail
+      'city.overview': '概览',
+      'city.reviews': '评论',
+      'city.photos': '照片',
+      'city.articles': '攻略',
+      'city.meetups': '聚会',
+      'city.score': '游民评分',
+      'city.cost': '生活成本',
+      'city.wifi': '网络速度',
+      'city.weather': '气候',
+      'city.safety': '安全',
+      'city.permonth': '/月',
+
+      // Articles
+      'articles.title': '游民攻略',
+      'articles.categories.visa': '签证',
+      'articles.categories.housing': '住宿',
+      'articles.categories.work': '远程工作',
+      'articles.categories finance': '财务',
+      'articles.categories.lifestyle': '生活方式',
+
+      // Meetups
+      'meetups.title': '聚会活动',
+      'meetups.attendees': '参加人数',
+      'meetups.rsvp': '报名',
+      'meetups.organizer': '组织者',
+
+      // Profile
+      'profile.title': '个人中心',
+      'profile.checkins': '签到',
+      'profile.reviews': '评论',
+      'profile.favorites': '收藏',
+      'profile.settings': '设置',
+
+      // Common
+      'common.loading': '加载中...',
+      'common.error': '出错了',
+      'common.retry': '重试',
+      'common.viewmore': '查看更多',
+      'common.USD': '美元'
+    }
+  }
+}
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources,
+    lng: 'zh',
+    fallbackLng: 'en',
+    interpolation: {
+      escapeValue: false
+    }
+  })
+
+export default i18n
