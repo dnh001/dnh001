@@ -12,6 +12,7 @@ const config = {
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: [
+    '@tarojs/plugin-platform-h5',
     '@tarojs/plugin-framework-react'
   ],
   defineConstants: {},
