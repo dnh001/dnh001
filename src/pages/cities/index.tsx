@@ -158,7 +158,7 @@ export function Cities() {
               <View className="empty">No cities found</View>
             ) : (
               cities.map((city, index) => (
-                <View key={city.id} className="city-item">
+                <View key={city.id} className="city-item" onClick={() => navigateTo({ url: `/pages/city-detail/index?id=${city.id}` })}>
                   <Text className="city-rank">#{index + 1}</Text>
                   <Image
                     className="city-image"
