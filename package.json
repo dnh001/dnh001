@@ -4,7 +4,7 @@
   "description": "数字游民之家 - Digital Nomad Hub",
   "private": true,
   "scripts": {
-    "preinstall": "rm -rf node_modules package-lock.json 2>/dev/null || true",
+    "preinstall": "rm -rf node_modules package-lock.json && npm cache clean --force 2>/dev/null || true",
     "dev:h5": "taro build --type h5 --watch",
     "build:h5": "taro build --type h5",
     "dev:weapp": "taro build --type weapp --watch",
