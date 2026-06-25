@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
 import { useTranslation } from 'react-i18next'
-import { meetupApi } from '../../api'
+import { navigateTo } from '@tarojs/taro'
 import type { Meetup } from '../../types'
-import { Calendar, MapPin, Users, Filter } from 'lucide-react'
+import { Calendar, MapPin, Users, Filter, Globe, Star, BookOpen } from 'lucide-react'
 import './index.css'
 
 export function Meetups() {
@@ -39,8 +39,11 @@ export function Meetups() {
   }
 
   const handleRSVP = (meetupId: string) => {
-    // In production, call API
     console.log('RSVP for:', meetupId)
+  }
+
+  const handleTabClick = (path: string) => {
+    navigateTo({ url: path })
   }
 
   return (
@@ -159,20 +162,24 @@ export function Meetups() {
       {/* Bottom Tab Bar */}
       <View className="tabbar">
         <View className="tabbar-content">
-          <View className="tabbar-item">
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/index/index')}>
+            <Globe size={40} />
+            <Text>{t('nav.home')}</Text>
+          </View>
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/cities/index')}>
             <MapPin size={40} />
             <Text>{t('nav.cities')}</Text>
           </View>
-          <View className="tabbar-item">
-            <Calendar size={40} />
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/articles/index')}>
+            <BookOpen size={40} />
+            <Text>{t('nav.articles')}</Text>
+          </View>
+          <View className="tabbar-item active" onClick={() => handleTabClick('/pages/meetups/index')}>
+            <Users size={40} />
             <Text>{t('nav.meetups')}</Text>
           </View>
-          <View className="tabbar-item">
-            <Users size={40} />
-            <Text>{t('nav.community')}</Text>
-          </View>
-          <View className="tabbar-item">
-            <Users size={40} />
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/profile/index')}>
+            <Star size={40} />
             <Text>{t('nav.profile')}</Text>
           </View>
         </View>

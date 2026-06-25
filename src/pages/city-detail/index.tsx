@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
 import { useTranslation } from 'react-i18next'
-import { useRouter } from '@tarojs/taro'
+import { useRouter, navigateTo } from '@tarojs/taro'
 import { cityApi, reviewApi } from '../../api'
 import type { City, Review } from '../../types'
-import { Star, MapPin, Wifi, DollarSign, Thermometer, Shield, Users, ThumbsUp, ArrowLeft } from 'lucide-react'
+import { Star, MapPin, Wifi, DollarSign, Thermometer, Shield, Users, ThumbsUp, ArrowLeft, Globe } from 'lucide-react'
 import './index.css'
 
 export function CityDetail() {
@@ -63,6 +63,10 @@ export function CityDetail() {
 
   const handleBack = () => {
     window.history.back()
+  }
+
+  const handleTabClick = (path: string) => {
+    navigateTo({ url: path })
   }
 
   if (loading || !city) {
@@ -221,19 +225,23 @@ export function CityDetail() {
       {/* Bottom Tab Bar */}
       <View className="tabbar">
         <View className="tabbar-content">
-          <View className="tabbar-item">
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/index/index')}>
+            <Globe size={40} />
+            <Text>{t('nav.home')}</Text>
+          </View>
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/cities/index')}>
             <MapPin size={40} />
             <Text>{t('nav.cities')}</Text>
           </View>
-          <View className="tabbar-item">
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/articles/index')}>
             <Star size={40} />
             <Text>{t('nav.articles')}</Text>
           </View>
-          <View className="tabbar-item">
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/meetups/index')}>
             <MapPin size={40} />
             <Text>{t('nav.meetups')}</Text>
           </View>
-          <View className="tabbar-item">
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/profile/index')}>
             <Star size={40} />
             <Text>{t('nav.profile')}</Text>
           </View>

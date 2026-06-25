@@ -8,7 +8,7 @@
   max-width: 1800px;
   margin: 0 auto;
   padding: 0 20px;
-  padding-bottom: 120px;
+  padding-bottom: 160px;
 }
 
 .loading {
@@ -72,7 +72,7 @@
 }
 
 .page-title {
-  font-size: 48px;
+  font-size: 64px;
   font-weight: 800;
   color: #0f172a;
 }
@@ -149,16 +149,16 @@
 
 .stat-value {
   display: block;
-  font-size: 44px;
+  font-size: 56px;
   font-weight: 800;
   color: #1e293b;
 }
 
 .stat-label {
   display: block;
-  font-size: 24px;
+  font-size: 28px;
   color: #64748b;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 .stat-divider {
@@ -182,11 +182,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 20px;
+  gap: 16px;
+  padding: 24px;
   background: white;
-  border-radius: 16px;
-  font-size: 28px;
+  border-radius: 20px;
+  font-size: 36px;
   font-weight: 600;
   color: #64748b;
 }
@@ -254,17 +254,17 @@
 
 .checkin-city {
   display: block;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .checkin-date {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 26px;
+  gap: 12px;
+  font-size: 32px;
   color: #94a3b8;
 }
 
@@ -343,8 +343,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  font-size: 20px;
+  gap: 8px;
+  font-size: 28px;
   color: #94a3b8;
 }
 

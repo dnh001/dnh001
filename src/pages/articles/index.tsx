@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
 import { useTranslation } from 'react-i18next'
-import { articleApi } from '../../api'
+import { navigateTo } from '@tarojs/taro'
 import type { Article } from '../../types'
-import { BookOpen, MapPin, Clock, Filter } from 'lucide-react'
+import { BookOpen, MapPin, Clock, Filter, Globe, Users, Star } from 'lucide-react'
 import './index.css'
 
 export function Articles() {
@@ -41,6 +41,10 @@ export function Articles() {
   const filteredArticles = activeCategory === 'all'
     ? articles
     : articles.filter(a => a.category === activeCategory)
+
+  const handleTabClick = (path: string) => {
+    navigateTo({ url: path })
+  }
 
   return (
     <View className="articles-page">
@@ -84,7 +88,7 @@ export function Articles() {
               </View>
             ) : (
               filteredArticles.map((article) => (
-                <View key={article.id} className="article-card">
+                <View key={article.id} className="article-card" onClick={() => navigateTo({ url: `/pages/article-detail/index?id=${article.id}` })}>
                   <Image
                     className="article-image"
                     src={article.coverImage || `https://picsum.photos/seed/${article.id}/300/200`}
@@ -127,20 +131,24 @@ export function Articles() {
       {/* Bottom Tab Bar */}
       <View className="tabbar">
         <View className="tabbar-content">
-          <View className="tabbar-item">
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/index/index')}>
+            <Globe size={40} />
+            <Text>{t('nav.home')}</Text>
+          </View>
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/cities/index')}>
             <MapPin size={40} />
             <Text>{t('nav.cities')}</Text>
           </View>
-          <View className="tabbar-item">
+          <View className="tabbar-item active" onClick={() => handleTabClick('/pages/articles/index')}>
             <BookOpen size={40} />
             <Text>{t('nav.articles')}</Text>
           </View>
-          <View className="tabbar-item">
-            <BookOpen size={40} />
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/meetups/index')}>
+            <Users size={40} />
             <Text>{t('nav.meetups')}</Text>
           </View>
-          <View className="tabbar-item">
-            <BookOpen size={40} />
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/profile/index')}>
+            <Star size={40} />
             <Text>{t('nav.profile')}</Text>
           </View>
         </View>

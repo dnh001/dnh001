@@ -238,19 +238,23 @@ export function Profile() {
       {/* Bottom Tab Bar */}
       <View className="tabbar">
         <View className="tabbar-content">
-          <View className="tabbar-item">
+          <View className="tabbar-item" onClick={() => navigateTo({ url: '/pages/index/index' })}>
+            <Globe size={40} />
+            <Text>{t('nav.home')}</Text>
+          </View>
+          <View className="tabbar-item" onClick={() => navigateTo({ url: '/pages/cities/index' })}>
             <MapPin size={40} />
             <Text>{t('nav.cities')}</Text>
           </View>
-          <View className="tabbar-item">
-            <Star size={40} />
+          <View className="tabbar-item" onClick={() => navigateTo({ url: '/pages/articles/index' })}>
+            <BookOpen size={40} />
             <Text>{t('nav.articles')}</Text>
           </View>
-          <View className="tabbar-item">
-            <Calendar size={40} />
+          <View className="tabbar-item" onClick={() => navigateTo({ url: '/pages/meetups/index' })}>
+            <Users size={40} />
             <Text>{t('nav.meetups')}</Text>
           </View>
-          <View className="tabbar-item active">
+          <View className="tabbar-item active" onClick={() => navigateTo({ url: '/pages/profile/index' })}>
             <Award size={40} />
             <Text>{t('nav.profile')}</Text>
           </View>

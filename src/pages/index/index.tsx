@@ -222,16 +222,18 @@ export function Index() {
               <View key={article.id} className="article-card" onClick={() => handleArticleClick(article.id)}>
                 <Image
                   className="article-image"
-                  src={article.coverImage || `https://picsum.photos/seed/${article.id}/200/120`}
+                  src={article.coverImage || `https://picsum.photos/seed/${article.id}/600/400`}
                   mode="aspectFill"
                 />
                 <View className="article-info">
-                  <Text className="article-category">{article.category}</Text>
-                  <Text className="article-title">{article.title}</Text>
+                  <View className="article-top">
+                    <Text className="article-category">{article.category}</Text>
+                    <Text className="article-title">{article.title}</Text>
+                  </View>
                   <View className="article-meta">
                     {article.cityName && (
                       <View className="meta-item">
-                        <MapPin size={12} />
+                        <MapPin size={28} />
                         <Text>{article.cityName}</Text>
                       </View>
                     )}

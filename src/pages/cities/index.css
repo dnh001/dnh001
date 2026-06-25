@@ -8,7 +8,7 @@
   max-width: 1800px;
   margin: 0 auto;
   padding: 0 20px;
-  padding-bottom: 120px;
+  padding-bottom: 160px;
 }
 
 .header {
@@ -19,7 +19,7 @@
 }
 
 .page-title {
-  font-size: 52px;
+  font-size: 64px;
   font-weight: 800;
   color: #0f172a;
 }
@@ -46,7 +46,7 @@
   flex: 1;
   border: none;
   outline: none;
-  font-size: 28px;
+  font-size: 36px;
   background: transparent;
 }
 
@@ -98,11 +98,11 @@
 }
 
 .sort-option {
-  padding: 12px 24px;
+  padding: 16px 32px;
   background: transparent;
   border: 2px solid #e2e8f0;
-  border-radius: 10px;
-  font-size: 24px;
+  border-radius: 12px;
+  font-size: 32px;
   color: #64748b;
   white-space: nowrap;
   cursor: pointer;
@@ -162,10 +162,10 @@
 
 .city-name {
   display: block;
-  font-size: 36px;
+  font-size: 44px;
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .city-location {
@@ -176,7 +176,7 @@
 }
 
 .city-country {
-  font-size: 26px;
+  font-size: 32px;
   color: #64748b;
 }
 
@@ -186,10 +186,10 @@
 }
 
 .city-tag {
-  font-size: 20px;
-  padding: 6px 12px;
+  font-size: 28px;
+  padding: 10px 20px;
   background: #f1f5f9;
-  border-radius: 8px;
+  border-radius: 12px;
   color: #64748b;
 }
 
@@ -210,26 +210,26 @@
 }
 
 .stat-value {
-  font-size: 36px;
+  font-size: 44px;
   font-weight: 700;
   color: #1e293b;
 }
 
 .stat-label {
   display: block;
-  font-size: 20px;
+  font-size: 28px;
   color: #94a3b8;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .city-cost {
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 600;
   color: #0ea5e9;
 }
 
 .cost-unit {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 400;
   color: #94a3b8;
 }
@@ -261,8 +261,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  font-size: 20px;
+  gap: 8px;
+  font-size: 28px;
   color: #94a3b8;
 }
 

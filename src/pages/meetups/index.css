@@ -8,7 +8,7 @@
   max-width: 1800px;
   margin: 0 auto;
   padding: 0 20px;
-  padding-bottom: 120px;
+  padding-bottom: 160px;
 }
 
 .header {
@@ -20,17 +20,17 @@
 
 .page-title {
   display: block;
-  font-size: 52px;
+  font-size: 64px;
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .header-subtitle {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 28px;
+  gap: 12px;
+  font-size: 36px;
   color: #64748b;
 }
 
@@ -52,11 +52,11 @@
 .filter-tag {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 24px;
+  gap: 12px;
+  padding: 18px 32px;
   background: #f1f5f9;
-  border-radius: 28px;
-  font-size: 26px;
+  border-radius: 36px;
+  font-size: 32px;
   color: #64748b;
   white-space: nowrap;
   cursor: pointer;
@@ -126,13 +126,13 @@
 }
 
 .date-day {
-  font-size: 44px;
+  font-size: 56px;
   font-weight: 800;
   line-height: 1;
 }
 
 .date-month {
-  font-size: 24px;
+  font-size: 32px;
   text-transform: uppercase;
   opacity: 0.9;
 }
@@ -159,8 +159,8 @@
 .meta-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 26px;
+  gap: 12px;
+  font-size: 32px;
   color: #64748b;
 }
 
@@ -169,7 +169,7 @@
 }
 
 .location-text {
-  font-size: 24px;
+  font-size: 32px;
   color: #94a3b8;
 }
 
@@ -187,21 +187,21 @@
 }
 
 .attendees-count {
-  font-size: 30px;
+  font-size: 36px;
   font-weight: 700;
   color: #1e293b;
 }
 
 .attendees-label {
-  font-size: 26px;
+  font-size: 32px;
 }
 
 .rsvp-btn {
-  padding: 16px 32px;
+  padding: 20px 40px;
   background: #0ea5e9;
   color: white;
-  border-radius: 28px;
-  font-size: 26px;
+  border-radius: 36px;
+  font-size: 32px;
   font-weight: 700;
 }
 

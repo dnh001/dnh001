@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { View, Text, Input, Image, ScrollView } from '@tarojs/components'
 import { useTranslation } from 'react-i18next'
-import { useRouter } from '@tarojs/taro'
+import { useRouter, navigateTo } from '@tarojs/taro'
 import { cityApi } from '../../api'
 import type { City } from '../../types'
-import { Search, Star, MapPin, Filter } from 'lucide-react'
+import { Search, Star, MapPin, Filter, Globe, Users } from 'lucide-react'
 import './index.css'
 
 const mockCities: City[] = [
@@ -72,6 +72,10 @@ export function Cities() {
 
   const handleSearch = () => {
     loadCities()
+  }
+
+  const handleTabClick = (path: string) => {
+    navigateTo({ url: path })
   }
 
   const filters = [
@@ -191,19 +195,23 @@ export function Cities() {
       {/* Bottom Tab Bar */}
       <View className="tabbar">
         <View className="tabbar-content">
-          <View className="tabbar-item">
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/index/index')}>
+            <Globe size={40} />
+            <Text>{t('nav.home')}</Text>
+          </View>
+          <View className="tabbar-item active" onClick={() => handleTabClick('/pages/cities/index')}>
             <MapPin size={40} />
             <Text>{t('nav.cities')}</Text>
           </View>
-          <View className="tabbar-item">
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/articles/index')}>
             <Star size={40} />
             <Text>{t('nav.articles')}</Text>
           </View>
-          <View className="tabbar-item">
-            <MapPin size={40} />
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/meetups/index')}>
+            <Users size={40} />
             <Text>{t('nav.meetups')}</Text>
           </View>
-          <View className="tabbar-item">
+          <View className="tabbar-item" onClick={() => handleTabClick('/pages/profile/index')}>
             <Star size={40} />
             <Text>{t('nav.profile')}</Text>
           </View>

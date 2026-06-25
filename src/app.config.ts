@@ -4,6 +4,7 @@ export default defineAppConfig({
     'pages/cities/index',
     'pages/city-detail/index',
     'pages/articles/index',
+    'pages/article-detail/index',
     'pages/meetups/index',
     'pages/community/index',
     'pages/profile/index',
