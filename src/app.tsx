@@ -18,6 +18,7 @@ function App() {
 
   return (
     <View className="min-h-screen bg-slate-50">
+      <Text>App Loaded!</Text>
     </View>
   )
 }
