@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useRouter, navigateTo } from '@tarojs/taro'
 import { cityApi } from '../../api'
 import type { City } from '../../types'
-import { Search, Star, MapPin, Filter, Globe, Users } from 'lucide-react'
+import { Search, Star, MapPin, Filter, Globe, Users, BookOpen, Award } from 'lucide-react'
 import './index.css'
 
 const mockCities: City[] = [
@@ -204,7 +204,7 @@ export function Cities() {
             <Text>{t('nav.cities')}</Text>
           </View>
           <View className="tabbar-item" onClick={() => handleTabClick('/pages/articles/index')}>
-            <Star size={40} />
+            <BookOpen size={40} />
             <Text>{t('nav.articles')}</Text>
           </View>
           <View className="tabbar-item" onClick={() => handleTabClick('/pages/meetups/index')}>
@@ -212,7 +212,7 @@ export function Cities() {
             <Text>{t('nav.meetups')}</Text>
           </View>
           <View className="tabbar-item" onClick={() => handleTabClick('/pages/profile/index')}>
-            <Star size={40} />
+            <Award size={40} />
             <Text>{t('nav.profile')}</Text>
           </View>
         </View>
