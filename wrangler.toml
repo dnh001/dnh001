@@ -1,0 +1,6 @@
+name = "dnh001-pages"
+compatibility_date = "2024-06-20"
+
+[build]
+command = "npm run build:h5"
+output_dir = "dist"
