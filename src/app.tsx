@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import './app.css'
 import './i18n'
 
