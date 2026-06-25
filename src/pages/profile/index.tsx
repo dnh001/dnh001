@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { View, Text, Image, ScrollView } from '@tarojs/components'
 import { useTranslation } from 'react-i18next'
-import { useRouter } from '@tarojs/taro'
-import { MapPin, Star, Heart, Settings, LogOut, Calendar, Award, Globe, ChevronRight, User } from 'lucide-react'
+import { navigateTo } from '@tarojs/taro'
+import { MapPin, Star, Heart, Settings, LogOut, Calendar, Award, Globe, ChevronRight, User, BookOpen, Users } from 'lucide-react'
 import './index.css'
 
 interface User {
@@ -19,7 +19,6 @@ interface User {
 
 export function Profile() {
   const { t, i18n } = useTranslation()
-  const { navigateTo } = useRouter()
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<'checkins' | 'favorites'>('checkins')
@@ -59,7 +58,7 @@ export function Profile() {
   }
 
   const handleLogin = () => {
-    window.location.href = '/pages/login/index'
+    navigateTo({ url: '/pages/login/index' })
   }
 
   const handleLogout = () => {

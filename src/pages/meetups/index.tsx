@@ -106,7 +106,7 @@ export function Meetups() {
               meetups.map((meetup) => {
                 const dateInfo = formatDate(meetup.date)
                 return (
-                  <View key={meetup.id} className="meetup-card">
+                  <View key={meetup.id} className="meetup-card" onClick={() => navigateTo({ url: `/pages/meetup-detail/index?id=${meetup.id}` })}>
                     {/* Date Badge */}
                     <View className="date-badge">
                       <Text className="date-day">{dateInfo.day}</Text>
@@ -140,14 +140,6 @@ export function Meetups() {
                             {meetup.currentAttendees}/{meetup.maxAttendees}
                           </Text>
                           <Text className="attendees-label">attending</Text>
-                        </View>
-                        <View
-                          className={`rsvp-btn ${meetup.currentAttendees >= meetup.maxAttendees ? 'full' : ''}`}
-                          onClick={() => handleRSVP(meetup.id)}
-                        >
-                          <Text>
-                            {meetup.currentAttendees >= meetup.maxAttendees ? 'Full' : t('meetups.rsvp')}
-                          </Text>
                         </View>
                       </View>
                     </View>

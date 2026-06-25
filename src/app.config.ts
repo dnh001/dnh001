@@ -6,6 +6,7 @@ export default defineAppConfig({
     'pages/articles/index',
     'pages/article-detail/index',
     'pages/meetups/index',
+    'pages/meetup-detail/index',
     'pages/community/index',
     'pages/profile/index',
     'pages/login/index'

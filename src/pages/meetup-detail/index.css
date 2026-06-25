@@ -1,0 +1,280 @@
+.meetup-detail-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding-bottom: 140px;
+}
+
+.main-content {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 24px 28px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-btn {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.header-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  background: #f0f9ff;
+  color: #0ea5e9;
+  border-radius: 36px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.content-area {
+  padding: 0 28px;
+  padding-top: 28px;
+  height: calc(100vh - 220px);
+}
+
+.hero-section {
+  position: relative;
+  height: 400px;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.meetup-title {
+  display: block;
+  font-size: 56px;
+  font-weight: 800;
+  color: white;
+}
+
+.info-section {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.date-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+  border-radius: 24px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.date-day {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 32px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.basic-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px;
+  background: white;
+  border-radius: 24px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  display: block;
+  font-size: 28px;
+  color: #94a3b8;
+}
+
+.info-value {
+  display: block;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.description-section {
+  padding: 28px;
+  background: white;
+  border-radius: 24px;
+  margin-bottom: 28px;
+}
+
+.section-title {
+  display: block;
+  font-size: 44px;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.description-text {
+  display: block;
+  font-size: 40px;
+  color: #334155;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.description-text:last-child {
+  margin-bottom: 0;
+}
+
+.organizer-section {
+  padding: 28px;
+  background: white;
+  border-radius: 24px;
+  margin-bottom: 28px;
+}
+
+.organizer-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.organizer-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.organizer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.organizer-name {
+  display: block;
+  font-size: 40px;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.organizer-title {
+  display: block;
+  font-size: 32px;
+  color: #94a3b8;
+}
+
+.action-section {
+  display: flex;
+  justify-content: center;
+  padding: 28px;
+}
+
+.rsvp-btn {
+  padding: 28px 64px;
+  background: #0ea5e9;
+  color: white;
+  border-radius: 40px;
+  font-size: 40px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.rsvp-btn.full {
+  background: #94a3b8;
+}
+
+.rsvp-btn.rsvped {
+  background: #10b981;
+}
+
+.bottom-spacer {
+  height: 40px;
+}
+
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: white;
+  border-top: 2px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.tabbar-content {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tabbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 28px;
+  color: #94a3b8;
+}
+
+.tabbar-item.active {
+  color: #0ea5e9;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  font-size: 40px;
+  color: #64748b;
+}
