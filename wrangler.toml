@@ -2,5 +2,5 @@ name = "dnh001-pages"
 compatibility_date = "2024-06-20"
 
 [build]
-command = "rm -rf node_modules package-lock.json && npm cache clean --force && npm install --progress=false && npm run build:h5"
+command = "rm -rf node_modules package-lock.json && npm cache clean --force && npm install --progress=false && npx taro build --type h5"
 output_dir = "dist"
