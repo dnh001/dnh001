@@ -8,7 +8,7 @@
   max-width: 1800px;
   margin: 0 auto;
   padding: 0 20px;
-  padding-bottom: 160px;
+  padding-bottom: 140px;
 }
 
 .loading {
@@ -169,6 +169,7 @@
 
 .profile-content {
   padding: 24px 28px;
+  height: calc(100vh - 500px);
 }
 
 .content-tabs {
@@ -272,6 +273,59 @@
   color: #cbd5e1;
 }
 
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review-item {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.review-city {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-city-name {
+  display: block;
+  font-size: 40px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.review-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.review-comment {
+  display: block;
+  font-size: 32px;
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.review-date {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  color: #94a3b8;
+}
+
 .favorites-list {
   display: flex;
   flex-direction: column;
@@ -321,13 +375,13 @@
   bottom: 0;
   left: 0;
   right: 0;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: white;
   border-top: 2px solid #e2e8f0;
-  padding: 12px 0;
-  padding-bottom: env(safe-area-inset-bottom, 12px);
+  padding: 0 0 env(safe-area-inset-bottom, 0);
   z-index: 100;
 }
 

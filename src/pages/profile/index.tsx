@@ -13,6 +13,7 @@ interface User {
   country: string
   checkins: Array<{ cityId: string; cityName: string; date: string }>
   reviews: number
+  reviewList: Array<{ cityId: string; cityName: string; rating: number; comment: string; date: string }>
   favorites: string[]
   joinedAt: string
 }
@@ -21,7 +22,7 @@ export function Profile() {
   const { t, i18n } = useTranslation()
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
-  const [activeTab, setActiveTab] = useState<'checkins' | 'favorites'>('checkins')
+  const [activeTab, setActiveTab] = useState<'checkins' | 'reviews' | 'favorites'>('checkins')
 
   useEffect(() => {
     loadUser()
@@ -46,6 +47,13 @@ export function Profile() {
             { cityId: '2', cityName: 'Lisbon', date: '2024-04-10' },
           ],
           reviews: 5,
+          reviewList: [
+            { cityId: '1', cityName: 'Bangkok', rating: 5, comment: 'Amazing city for digital nomads!', date: '2024-06-20' },
+            { cityId: '3', cityName: 'Canggu', rating: 4, comment: 'Great surf and coworking spaces.', date: '2024-05-25' },
+            { cityId: '2', cityName: 'Lisbon', rating: 5, comment: 'Love the food and culture.', date: '2024-04-15' },
+            { cityId: '4', cityName: 'Mexico City', rating: 4, comment: 'Vibrant city with great food scene.', date: '2024-03-10' },
+            { cityId: '5', cityName: 'Da Nang', rating: 5, comment: 'Beautiful beaches and affordable living.', date: '2024-02-05' },
+          ],
           favorites: ['1', '2', '3', '9'],
           joinedAt: '2023-01-15'
         })
@@ -136,17 +144,17 @@ export function Profile() {
 
           {/* Stats */}
           <View className="stats-row">
-            <View className="stat-item">
+            <View className="stat-item" onClick={() => setActiveTab('checkins')}>
               <Text className="stat-value">{user.checkins.length}</Text>
               <Text className="stat-label">Check-ins</Text>
             </View>
             <View className="stat-divider" />
-            <View className="stat-item">
+            <View className="stat-item" onClick={() => setActiveTab('reviews')}>
               <Text className="stat-value">{user.reviews}</Text>
               <Text className="stat-label">Reviews</Text>
             </View>
             <View className="stat-divider" />
-            <View className="stat-item">
+            <View className="stat-item" onClick={() => setActiveTab('favorites')}>
               <Text className="stat-value">{user.favorites.length}</Text>
               <Text className="stat-label">Favorites</Text>
             </View>
@@ -163,6 +171,13 @@ export function Profile() {
             >
               <MapPin size={32} />
               <Text>Check-ins</Text>
+            </View>
+            <View
+              className={`content-tab ${activeTab === 'reviews' ? 'active' : ''}`}
+              onClick={() => setActiveTab('reviews')}
+            >
+              <Star size={32} />
+              <Text>Reviews</Text>
             </View>
             <View
               className={`content-tab ${activeTab === 'favorites' ? 'active' : ''}`}
@@ -196,6 +211,45 @@ export function Profile() {
                       </Text>
                     </View>
                     <ChevronRight size={32} className="checkin-arrow" />
+                  </View>
+                ))
+              )}
+            </View>
+          )}
+
+          {/* Reviews List */}
+          {activeTab === 'reviews' && (
+            <View className="reviews-list">
+              {user.reviewList.length === 0 ? (
+                <View className="empty-state">
+                  <Star size={64} />
+                  <Text className="empty-title">No reviews yet</Text>
+                  <Text className="empty-subtitle">Share your experiences by reviewing cities you've visited</Text>
+                </View>
+              ) : (
+                user.reviewList.map((review, index) => (
+                  <View key={index} className="review-item">
+                    <View className="review-header">
+                      <View className="review-city">
+                        <MapPin size={32} />
+                        <Text className="review-city-name">{review.cityName}</Text>
+                      </View>
+                      <View className="review-stars">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <Star
+                            key={star}
+                            size={24}
+                            fill={star <= review.rating ? '#fbbf24' : 'none'}
+                            color={star <= review.rating ? '#fbbf24' : '#cbd5e1'}
+                          />
+                        ))}
+                      </View>
+                    </View>
+                    <Text className="review-comment">{review.comment}</Text>
+                    <Text className="review-date">
+                      <Calendar size={24} />
+                      {review.date}
+                    </Text>
                   </View>
                 ))
               )}
