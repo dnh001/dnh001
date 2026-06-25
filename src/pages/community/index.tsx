@@ -242,4 +242,4 @@ const mockPosts: Post[] = [
   }
 ]
 
-export default { Community }
+export default Community

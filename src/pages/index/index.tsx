@@ -287,4 +287,4 @@ const mockMeetups: Meetup[] = [
   { id: '3', title: 'Beach Day Canggu', cityId: '3', cityName: 'Canggu', location: 'Finns Beach Club', date: '2026-07-12', time: '14:00', maxAttendees: 50, currentAttendees: 35, organizer: { name: 'Made', avatar: '' } },
 ]
 
-export default { Index }
+export default Index

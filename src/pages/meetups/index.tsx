@@ -241,4 +241,4 @@ const mockMeetups: Meetup[] = [
   }
 ]
 
-export default { Meetups }
+export default Meetups

@@ -223,4 +223,4 @@ const mockArticles: Article[] = [
   }
 ]
 
-export default { Articles }
+export default Articles

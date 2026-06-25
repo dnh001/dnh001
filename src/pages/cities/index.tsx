@@ -175,4 +175,4 @@ export function Cities() {
   )
 }
 
-export default { Cities }
+export default Cities
