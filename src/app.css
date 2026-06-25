@@ -9,15 +9,19 @@
 }
 
 body {
-  font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8fafc;
-  color: #1e293b;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  background-color: #ffffff;
+  color: #0f172a;
+  font-size: 24px;
+  line-height: 2;
 }
 
 page {
-  background-color: #f8fafc;
+  background-color: #ffffff;
   min-height: 100vh;
 }
 
@@ -25,4 +29,15 @@ page {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
 }

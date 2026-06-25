@@ -44,101 +44,105 @@ export function Articles() {
 
   return (
     <View className="articles-page">
-      {/* Header */}
-      <View className="header">
-        <Text className="page-title">{t('articles.title')}</Text>
-        <View className="header-subtitle">
-          <BookOpen size={16} />
-          <Text>Guides and tips for digital nomads</Text>
+      <View className="main-content">
+        {/* Header */}
+        <View className="header">
+          <Text className="page-title">{t('articles.title')}</Text>
+          <View className="header-subtitle">
+            <BookOpen size={36} />
+            <Text>Guides and tips for digital nomads</Text>
+          </View>
         </View>
-      </View>
 
-      {/* Categories */}
-      <View className="categories-section">
-        <ScrollView scrollX className="category-scroll">
-          <View className="category-tags">
-            {categories.map((cat) => (
-              <View
-                key={cat.key}
-                className={`category-tag ${activeCategory === cat.key ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat.key)}
-              >
-                <Text>{cat.label}</Text>
+        {/* Categories */}
+        <View className="categories-section">
+          <ScrollView scrollX className="category-scroll">
+            <View className="category-tags">
+              {categories.map((cat) => (
+                <View
+                  key={cat.key}
+                  className={`category-tag ${activeCategory === cat.key ? 'active' : ''}`}
+                  onClick={() => setActiveCategory(cat.key)}
+                >
+                  <Text>{cat.label}</Text>
+                </View>
+              ))}
+            </View>
+          </ScrollView>
+        </View>
+
+        {/* Article List */}
+        <ScrollView scrollY className="article-list-section">
+          <View className="article-list">
+            {loading ? (
+              <View className="loading">{t('common.loading')}</View>
+            ) : filteredArticles.length === 0 ? (
+              <View className="empty">
+                <BookOpen size={64} />
+                <Text className="empty-title">No articles found</Text>
+                <Text className="empty-subtitle">Check back soon for new content</Text>
               </View>
-            ))}
+            ) : (
+              filteredArticles.map((article) => (
+                <View key={article.id} className="article-card">
+                  <Image
+                    className="article-image"
+                    src={article.coverImage || `https://picsum.photos/seed/${article.id}/300/200`}
+                    mode="aspectFill"
+                  />
+                  <View className="article-content">
+                    <View className="article-meta-top">
+                      <Text className="article-category">{article.category}</Text>
+                      <View className="meta-item">
+                        <Clock size={28} />
+                        <Text>{article.readTime} min</Text>
+                      </View>
+                    </View>
+                    <Text className="article-title">{article.title}</Text>
+                    <Text className="article-summary">{article.summary}</Text>
+                    <View className="article-meta-bottom">
+                      {article.cityName && (
+                        <View className="meta-item">
+                          <MapPin size={28} />
+                          <Text>{article.cityName}</Text>
+                        </View>
+                      )}
+                      <View className="author">
+                        <Image
+                          className="author-avatar"
+                          src={article.author.avatar}
+                          mode="aspectFill"
+                        />
+                        <Text className="author-name">{article.author.name}</Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              ))
+            )}
           </View>
         </ScrollView>
       </View>
 
-      {/* Article List */}
-      <ScrollView scrollY className="article-list-section">
-        <View className="article-list">
-          {loading ? (
-            <View className="loading">{t('common.loading')}</View>
-          ) : filteredArticles.length === 0 ? (
-            <View className="empty">
-              <BookOpen size={48} />
-              <Text className="empty-title">No articles found</Text>
-              <Text className="empty-subtitle">Check back soon for new content</Text>
-            </View>
-          ) : (
-            filteredArticles.map((article) => (
-              <View key={article.id} className="article-card">
-                <Image
-                  className="article-image"
-                  src={article.coverImage || `https://picsum.photos/seed/${article.id}/300/200`}
-                  mode="aspectFill"
-                />
-                <View className="article-content">
-                  <View className="article-meta-top">
-                    <Text className="article-category">{article.category}</Text>
-                    <View className="meta-item">
-                      <Clock size={12} />
-                      <Text>{article.readTime} min</Text>
-                    </View>
-                  </View>
-                  <Text className="article-title">{article.title}</Text>
-                  <Text className="article-summary">{article.summary}</Text>
-                  <View className="article-meta-bottom">
-                    {article.cityName && (
-                      <View className="meta-item">
-                        <MapPin size={12} />
-                        <Text>{article.cityName}</Text>
-                      </View>
-                    )}
-                    <View className="author">
-                      <Image
-                        className="author-avatar"
-                        src={article.author.avatar}
-                        mode="aspectFill"
-                      />
-                      <Text className="author-name">{article.author.name}</Text>
-                    </View>
-                  </View>
-                </View>
-              </View>
-            ))
-          )}
-        </View>
-      </ScrollView>
-
       {/* Bottom Tab Bar */}
       <View className="tabbar">
-        <View className="tabbar-item">
-          <MapPin size={24} />
-          <Text>{t('nav.cities')}</Text>
-        </View>
-        <View className="tabbar-item">
-          <BookOpen size={24} />
-          <Text>{t('nav.articles')}</Text>
-        </View>
-        <View className="tabbar-item">
-          <BookOpen size={24} />
-          <Text>{t('nav.meetups')}</Text>
-        </View>
-        <View className="tabbar-item">
-          <BookOpen size={24} />
-          <Text>{t('nav.profile')}</Text>
+        <View className="tabbar-content">
+          <View className="tabbar-item">
+            <MapPin size={40} />
+            <Text>{t('nav.cities')}</Text>
+          </View>
+          <View className="tabbar-item">
+            <BookOpen size={40} />
+            <Text>{t('nav.articles')}</Text>
+          </View>
+          <View className="tabbar-item">
+            <BookOpen size={40} />
+            <Text>{t('nav.meetups')}</Text>
+          </View>
+          <View className="tabbar-item">
+            <BookOpen size={40} />
+            <Text>{t('nav.profile')}</Text>
+          </View>
         </View>
       </View>
     </View>

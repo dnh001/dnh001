@@ -12,7 +12,7 @@ export default defineAppConfig({
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: '数字游民之家',
+    navigationBarTitleText: '',
     navigationBarTextStyle: 'black'
   }
 })

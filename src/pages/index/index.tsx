@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { View, Text, Image, Input, ScrollView } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import { useTranslation } from 'react-i18next'
 import { cityApi, articleApi, meetupApi } from '../../api'
 import type { City, Article, Meetup } from '../../types'
@@ -45,12 +46,59 @@ export function Index() {
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      window.location.href = `/pages/cities/index?search=${encodeURIComponent(searchQuery)}`
+      Taro.navigateTo({
+        url: `/pages/cities/index?search=${encodeURIComponent(searchQuery)}`
+      })
     }
   }
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh')
+  }
+
+  const handleCityClick = (cityId: string) => {
+    Taro.navigateTo({
+      url: `/pages/city-detail/index?id=${cityId}`
+    })
+  }
+
+  const handleArticleClick = (articleId: string) => {
+    Taro.navigateTo({
+      url: `/pages/articles/index?id=${articleId}`
+    })
+  }
+
+  const handleMeetupClick = (meetupId: string) => {
+    Taro.navigateTo({
+      url: `/pages/meetups/index?id=${meetupId}`
+    })
+  }
+
+  const handleViewMore = (section: string) => {
+    const routes: Record<string, string> = {
+      trending: '/pages/cities/index',
+      toprated: '/pages/cities/index',
+      articles: '/pages/articles/index',
+      meetups: '/pages/meetups/index'
+    }
+    Taro.navigateTo({
+      url: routes[section] || '/pages/cities/index'
+    })
+  }
+
+  const handleTabClick = (tab: string) => {
+    const routes: Record<string, string> = {
+      home: '/pages/index/index',
+      cities: '/pages/cities/index',
+      articles: '/pages/articles/index',
+      meetups: '/pages/meetups/index',
+      profile: '/pages/profile/index'
+    }
+    if (routes[tab]) {
+      Taro.reLaunch({
+        url: routes[tab]
+      })
+    }
   }
 
   return (
@@ -100,13 +148,13 @@ export function Index() {
               <TrendingUp className="section-icon" />
               <Text className="section-title">{t('home.section.trending')}</Text>
             </View>
-            <Text className="section-more">{t('common.viewmore')} →</Text>
+            <Text className="section-more" onClick={() => handleViewMore('trending')}>{t('common.viewmore')} →</Text>
           </View>
 
           <ScrollView scrollX className="city-scroll">
             <View className="city-cards">
               {trendingCities.map((city) => (
-                <View key={city.id} className="city-card">
+                <View key={city.id} className="city-card" onClick={() => handleCityClick(city.id)}>
                   <Image
                     className="city-image"
                     src={city.imageUrl || `https://picsum.photos/seed/${city.id}/300/200`}
@@ -133,12 +181,12 @@ export function Index() {
               <Star className="section-icon" />
               <Text className="section-title">{t('home.section.toprated')}</Text>
             </View>
-            <Text className="section-more">{t('common.viewmore')} →</Text>
+            <Text className="section-more" onClick={() => handleViewMore('toprated')}>{t('common.viewmore')} →</Text>
           </View>
 
           <View className="city-list">
             {topRatedCities.map((city, index) => (
-              <View key={city.id} className="city-list-item">
+              <View key={city.id} className="city-list-item" onClick={() => handleCityClick(city.id)}>
                 <Text className="city-rank">#{index + 1}</Text>
                 <Image
                   className="city-list-image"
@@ -166,12 +214,12 @@ export function Index() {
               <Globe className="section-icon" />
               <Text className="section-title">{t('home.section.articles')}</Text>
             </View>
-            <Text className="section-more">{t('common.viewmore')} →</Text>
+            <Text className="section-more" onClick={() => handleViewMore('articles')}>{t('common.viewmore')} →</Text>
           </View>
 
           <View className="article-list">
             {(articles.length > 0 ? articles : mockArticles).map((article) => (
-              <View key={article.id} className="article-card">
+              <View key={article.id} className="article-card" onClick={() => handleArticleClick(article.id)}>
                 <Image
                   className="article-image"
                   src={article.coverImage || `https://picsum.photos/seed/${article.id}/200/120`}
@@ -202,12 +250,12 @@ export function Index() {
               <Calendar className="section-icon" />
               <Text className="section-title">{t('home.section.meetups')}</Text>
             </View>
-            <Text className="section-more">{t('common.viewmore')} →</Text>
+            <Text className="section-more" onClick={() => handleViewMore('meetups')}>{t('common.viewmore')} →</Text>
           </View>
 
           <View className="meetup-list">
             {(meetups.length > 0 ? meetups : mockMeetups).map((meetup) => (
-              <View key={meetup.id} className="meetup-card">
+              <View key={meetup.id} className="meetup-card" onClick={() => handleMeetupClick(meetup.id)}>
                 <View className="meetup-date">
                   <Text className="meetup-day">{new Date(meetup.date).getDate()}</Text>
                   <Text className="meetup-month">
@@ -234,25 +282,27 @@ export function Index() {
 
       {/* Bottom Tab Bar */}
       <View className="tabbar">
-        <View className="tabbar-item active">
-          <Globe size={24} />
-          <Text>{t('nav.home')}</Text>
-        </View>
-        <View className="tabbar-item">
-          <MapPin size={24} />
-          <Text>{t('nav.cities')}</Text>
-        </View>
-        <View className="tabbar-item">
-          <Globe size={24} />
-          <Text>{t('nav.articles')}</Text>
-        </View>
-        <View className="tabbar-item">
-          <Calendar size={24} />
-          <Text>{t('nav.meetups')}</Text>
-        </View>
-        <View className="tabbar-item">
-          <Star size={24} />
-          <Text>{t('nav.profile')}</Text>
+        <View className="tabbar-content">
+          <View className="tabbar-item active" onClick={() => handleTabClick('home')}>
+            <Globe size={28} />
+            <Text>{t('nav.home')}</Text>
+          </View>
+          <View className="tabbar-item" onClick={() => handleTabClick('cities')}>
+            <MapPin size={28} />
+            <Text>{t('nav.cities')}</Text>
+          </View>
+          <View className="tabbar-item" onClick={() => handleTabClick('articles')}>
+            <Globe size={28} />
+            <Text>{t('nav.articles')}</Text>
+          </View>
+          <View className="tabbar-item" onClick={() => handleTabClick('meetups')}>
+            <Calendar size={28} />
+            <Text>{t('nav.meetups')}</Text>
+          </View>
+          <View className="tabbar-item" onClick={() => handleTabClick('profile')}>
+            <Star size={28} />
+            <Text>{t('nav.profile')}</Text>
+          </View>
         </View>
       </View>
     </View>

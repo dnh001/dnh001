@@ -1,6 +1,6 @@
 const API_BASE = process.env.NODE_ENV === 'production'
   ? 'https://api.dnh001.com'
-  : 'http://localhost:8787'
+  : 'https://api.dnh001.com'
 
 interface RequestOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE'

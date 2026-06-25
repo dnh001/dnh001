@@ -1,4 +1,4 @@
 export default definePageConfig({
-  navigationStyle: 'default',
+  navigationStyle: 'custom',
   enablePullDownRefresh: false
 })
