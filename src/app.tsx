@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { View } from '@tarojs/components'
+import './app.css'
+import './i18n'
 
 function App() {
   const { i18n } = useTranslation()
