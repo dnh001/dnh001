@@ -4,7 +4,7 @@ import Taro from '@tarojs/taro'
 import { useTranslation } from 'react-i18next'
 import { cityApi, articleApi, meetupApi } from '../../api'
 import type { City, Article, Meetup } from '../../types'
-import { Globe, Search, TrendingUp, Star, Calendar, MapPin } from 'lucide-react'
+import { Globe, Search, TrendingUp, Star, Calendar, MapPin, BookOpen } from 'lucide-react'
 import './index.css'
 
 export function Index() {
@@ -294,7 +294,7 @@ export function Index() {
             <Text>{t('nav.cities')}</Text>
           </View>
           <View className="tabbar-item" onClick={() => handleTabClick('articles')}>
-            <Globe size={28} />
+            <BookOpen size={28} />
             <Text>{t('nav.articles')}</Text>
           </View>
           <View className="tabbar-item" onClick={() => handleTabClick('meetups')}>
