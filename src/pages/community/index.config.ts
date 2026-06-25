@@ -1,4 +1,4 @@
-export default defineComponentConfig({
+export default definePageConfig({
   navigationStyle: 'default',
   enablePullDownRefresh: false
 })

@@ -6,8 +6,5 @@ module.exports = {
       framework: 'react',
       ts: true
     }]
-  ],
-  plugins: [
-    'tailwindcss/globals'
   ]
 }

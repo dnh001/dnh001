@@ -20,6 +20,12 @@ const config = {
     options: {}
   },
   framework: 'react',
+  compiler: {
+    type: 'webpack5',
+    prebundle: {
+      enable: false
+    }
+  },
   compilationDependencies: [],
   cache: {
     enable: true
