@@ -17,7 +17,9 @@ const config = {
   ],
   defineConstants: {},
   copy: {
-    patterns: [],
+    patterns: [
+      { from: 'public', to: '' }
+    ],
     options: {}
   },
   framework: 'react',
